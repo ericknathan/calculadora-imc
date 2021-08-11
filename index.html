@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de IMC</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./scripts.js" defer></script>
   </head>
   <body>
     <header>
@@ -50,23 +51,20 @@
         <form>
           <div>
             <label for="name">Nome:</label>
-            <input type="text" id="name" />
+            <input type="text" id="name" required />
           </div>
-          <div>
+          <div class="unity" data-unity="metros">
             <label for="height">Altura:</label>
-            <input type="number" id="height" />
+            <input type="number" step=".01" id="height" required />
           </div>
-          <div>
+          <div class="unity" data-unity="quilos">
             <label for="weight">Peso:</label>
-            <input type="number" id="weight" />
+            <input type="number" step=".01" id="weight" required />
           </div>
-          <button>CALCULAR</button>
+          <button id="calculate" type="button">CALCULAR</button>
         </form>
         <div class="result">
-          <p>
-            Ana Maria Braga, seu IMC é 21,1 e você está com peso ideal.
-            Parabéns!!!
-          </p>
+          <p id="result">Insira suas informações acima</p>
         </div>
       </div>
     </main>

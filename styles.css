@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --primary-color: #fcc91c;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -38,17 +44,15 @@ main {
 .categories {
   width: 450px;
 }
-table {
+
+table,
+th {
   width: 100%;
 }
 
+tr td,
 th {
-  font-weight: bold;
-  width: 100%
-}
-
-tr td, th {
-  background-color: goldenrod;
+  background-color: var(--primary-color);
   margin: 2px;
   border-radius: 4px;
   height: 42px;
@@ -57,7 +61,10 @@ tr td, th {
   justify-content: center;
 }
 
-table tbody {
+table tbody,
+.form,
+form,
+form div {
   display: flex;
   flex-direction: column;
 }
@@ -68,24 +75,34 @@ table tr {
 
 table td {
   width: 50%;
+  min-width: 145px;
 }
 
 .form {
   width: 250px;
-  display: flex;
-  flex-direction: column;
   gap: 24px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 
 form div {
+  position: relative;
+}
+
+form div.unity::before {
+  content: attr(data-unity);
+  background-color: var(--primary-color);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 42px;
+  width: 60px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 4px 4px 0;
 }
 
 form div label {
@@ -94,11 +111,15 @@ form div label {
 
 form div input {
   background-color: transparent;
-  border: 2px solid goldenrod;
+  border: 2px solid var(--primary-color);
   border-radius: 4px;
   height: 42px;
   color: white;
   padding: 4px 8px;
+}
+
+form div.unity input {
+  padding-right: 64px;
 }
 
 form div input:focus {
@@ -106,10 +127,9 @@ form div input:focus {
   border: 2px solid rgb(230, 201, 128);
 }
 
-
 form button,
 .result {
-  background-color: goldenrod;
+  background-color: var(--primary-color);
   width: 100%;
   border-radius: 4px;
   text-align: center;
@@ -125,11 +145,11 @@ form button {
 }
 
 .result {
-  padding: 12px;
-  height: 100px;
+  padding: 24px 12px;
   display: flex;
   align-items: center;
   font-size: 18px;
+  font-style: italic;
 }
 
 footer {
@@ -142,8 +162,11 @@ footer span {
   color: white;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .categories {
     display: none;
+  }
+  h1 {
+    font-size: 2rem;
   }
 }
