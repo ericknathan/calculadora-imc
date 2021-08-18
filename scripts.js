@@ -1,4 +1,4 @@
-document.addEventListener('keyup', (event) => event.keyCode === 13 && showResult());
+document.querySelector('form').addEventListener('keypress', (event) => event.key == 'Enter' && showResult());
 
 document.getElementById('calculate').addEventListener('click', () => {
   const name = document.getElementById('name').value;
