@@ -1,14 +1,13 @@
-const result = document.getElementById('result');
-const button = document.getElementById('calculate');
+document.addEventListener('keyup', (event) => event.keyCode === 13 && showResult());
 
-button.addEventListener('click', () => {
+document.getElementById('calculate').addEventListener('click', () => {
   const name = document.getElementById('name').value;
   const height = document.getElementById('height').value;
   const weight = document.getElementById('weight').value;
   
-  if (name.length != 0 && height.length != 0 && weight.length != 0) {
+  if (document.querySelector('form').checkValidity()) {
     const imc = weight / (height * height);
-    result.innerHTML = `${name}, seu IMC é ${imc.toFixed(2)} e você está ${getStatus(imc)}`;
+    document.getElementById('result').textContent = `${name}, seu IMC é ${imc.toFixed(2)} e você está ${getStatus(imc)}`;
   }
 });
 
