@@ -162,6 +162,16 @@ footer span {
   color: white;
 }
 
+.congratulations {
+  color: green;
+  font-weight: bold;
+}
+
+.caution {
+  color: red;
+  font-weight: bold;
+}
+
 @media (max-width: 768px) {
   .categories {
     display: none;
